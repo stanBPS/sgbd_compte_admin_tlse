@@ -52,7 +52,6 @@ L'application développée devra répondre aux exigences minimales listées ci-d
 
 ---
 >## Liens
-
 ---
 > ## Contributeurs
 - [HAZE-UPS](https://github.com/Huze-UPS)
