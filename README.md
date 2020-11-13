@@ -55,6 +55,6 @@ L'application développée devra répondre aux exigences minimales listées ci-d
 
 ---
 > ## Contributeurs
-    @Haze-UPS
-    @likou31
-    @supersieu
+- [HAZE-UPS](https://github.com/Huze-UPS)
+- [likou31](https://github.com/likou31)
+- [supersieu](https://github.com/supersieu)
