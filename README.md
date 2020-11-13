@@ -35,7 +35,7 @@
     SELECT DISTINCT Ordre_Reel,Depenses_Recettes,Investissement_Fonctionnement,  codeChapitre,codeArticle,codePresentationCroisee,entiteFinanciereProgramme,montantRealise 
     FROM compte_adm_tls;
 ```
-- [Fichier SQL](https://github.com/stanBPS/sgbd_compte_admin_tlse/tree/master/SGBD)
+- [Fichier SQL](https://github.com/stanBPS/sgbd_compte_admin_tlse/tree/master/SGBD/Creation_table.sql)
 - [Table de base en csv](https://github.com/stanBPS/sgbd_compte_admin_tlse/tree/master/SGBD/compte_adm_tls.csv)
 
 ---
