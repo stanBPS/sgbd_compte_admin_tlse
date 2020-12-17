@@ -41,11 +41,11 @@
 ---
 >## Exigence
 L'application développée devra répondre aux exigences minimales listées ci-dessous :
-- [ ] L'utilisateur doit pouvoir ajouter un nouvel enregistrement dans la base de données. Cette fonction doit être protégée par un mot de passe.
-- [ ] L'utilisateur doit pouvoir modifier les informations concernant un enregistrement. Cette fonction doit être protégée par un mot de passe.
-- [ ] L'utilisateur doit pouvoir supprimer un enregistrement. Cette fonction doit être protégée par un mot de passe.
+- [x] L'utilisateur doit pouvoir ajouter un nouvel enregistrement dans la base de données. Cette fonction doit être protégée par un mot de passe.
+- [x] L'utilisateur doit pouvoir modifier les informations concernant un enregistrement. Cette fonction doit être protégée par un mot de passe.
+- [x] L'utilisateur doit pouvoir supprimer un enregistrement. Cette fonction doit être protégée par un mot de passe.
 - [ ] L'utilisateur doit pouvoir trouver les informations pertinentes en précisant des critères de recherche via un formulaire.
-- [ ] L'utilisateur doit pouvoir trouver le montant total dépensé ou reçu par rapport à un chapitre ou un article.
+- [x] L'utilisateur doit pouvoir trouver le montant total dépensé ou reçu par rapport à un chapitre ou un article.
 
 ---
 >## Exemple appel à la BDD
@@ -54,6 +54,7 @@ L'application développée devra répondre aux exigences minimales listées ci-d
 >## Liens
 ---
 > ## Contributeurs
+- [supersieu](https://github.com/supersieu)
 - [HAZE-UPS](https://github.com/Huze-UPS)
 - [likou31](https://github.com/likou31)
-- [supersieu](https://github.com/supersieu)
+

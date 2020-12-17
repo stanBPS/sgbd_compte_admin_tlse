@@ -1,5 +1,9 @@
 package fr.sgbd.jdbc;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Enregistrement {
 		private int codechapitre,codearticle,codepresentationcroisee ;
 		private float montantrealise;
@@ -106,8 +110,12 @@ public class Enregistrement {
 		/**
 		 * @return the montantrealise
 		 */
-		public float getMontantrealise() {
-			return montantrealise;
+		public String getMontantrealise() {
+			NumberFormat nf = NumberFormat.getNumberInstance(Locale.FRANCE);
+			DecimalFormat df = (DecimalFormat)nf;
+			df.applyPattern("###,###.###");
+			
+			return df.format(montantrealise);
 		}
 		
 		

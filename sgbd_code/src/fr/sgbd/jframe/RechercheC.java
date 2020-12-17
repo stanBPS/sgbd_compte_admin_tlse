@@ -1,11 +1,15 @@
 package fr.sgbd.jframe;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -35,9 +39,13 @@ public class RechercheC extends JPanel{
 	ButtonGroup art_chap_grp;
 	ResultSet rs;
 	String tableName;
+	JTextField depense;
+	JTextField recette;
 	int num;
 	JComboBox<Integer> listCha_art;
 	JTextField textCha_art;
+	NumberFormat nf = NumberFormat.getNumberInstance(Locale.FRANCE);
+	DecimalFormat df = (DecimalFormat)nf;
 	
 	
 	//Recuperer les valeurs des enregistrements
@@ -192,9 +200,27 @@ public class RechercheC extends JPanel{
 		textCha_art.setEditable(false);
 		textCha_art.setBounds(709, 62, 428, 38);
 		
-		
-
-		
+		 JLabel recette_label = new JLabel("RECETTE TOTAL : ");
+		 recette_label.setBounds(1250,30,150,15);
+		 recette = new JTextField("0.0");
+		 recette.setBounds(1370,20,100,30);
+		 recette.setEditable(false);
+		 recette.setFont(new Font("Serif", Font.BOLD,13));
+		 JLabel recette_sign = new JLabel(" €");
+		 recette_sign.setBounds(1480,30,150,15);
+		 
+		 JLabel depense_label = new JLabel("DEPENSE TOTAL : ");
+		 depense_label.setBounds(1250,70,150,15);
+		 depense = new JTextField("0.0");
+		 depense.setBounds(1370,60,100,30);
+		 depense.setEditable(false);
+		 depense.setFont(new Font("Serif", Font.BOLD,13));
+		 JLabel depense_sign = new JLabel(" €");
+		 depense_sign.setBounds(1480,70,150,15);
+		 
+		 
+		 
+		 df.applyPattern("###,###.###");
 		listCha_art.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				int n = 0;
@@ -208,10 +234,14 @@ public class RechercheC extends JPanel{
 				}
 				if(table == "article") {
 					textCha_art.setText(getLibelleArticle(n,table));
+					recette.setText(df.format(d.querySelectbyArticleSum(n,"Recette")).toString());
+					depense.setText(df.format(d.querySelectbyArticleSum(n,"Depense")).toString());
 					show_enregistrement(n,table);
 				}
 				if(table == "chapitre") {
 					textCha_art.setText(getLibelleChapitre(n,table));
+					recette.setText(df.format(d.querySelectbyChapitreSum(n,"Recette")).toString());
+					depense.setText(df.format(d.querySelectbyChapitreSum(n,"Depense")).toString());
 					show_enregistrement(n,table);
 				}
 				
@@ -234,6 +264,12 @@ public class RechercheC extends JPanel{
 		model.setColumnIdentifiers(col);
 		table_enr.setModel(model);
 		this.add(table_enr);
+		this.add(depense);
+		this.add(recette);
+		this.add(depense_label);
+		this.add(recette_label);
+		this.add(depense_sign);
+		this.add(recette_sign);
 		
 		JScrollPane scroll_container = new JScrollPane(table_enr);
 		scroll_container.setBounds(0, 120, 1540, 540);

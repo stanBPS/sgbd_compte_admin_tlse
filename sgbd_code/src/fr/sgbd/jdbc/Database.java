@@ -145,6 +145,30 @@ public class Database {
 				+ " and c.codepresentationcroisee = p.codepresentationcroisee ORDER BY c.id";
 		return this.executerRequete(sql);
 	}
+	public float querySelectbyArticleSum(int article, String d_r) {
+		float result = 0;
+		//connexionDatabase();
+		String sql = "SELECT SUM(c.montantrealise)"
+				+" FROM compte_adm_tls1 c,article a,chapitre ch,entitefinanciereprogramme e ,presentationcroisee p"
+				+" WHERE c.codearticle="+article
+				+" and c.depenses_recettes= '"+d_r+"'"
+				+" and c.codearticle = a.codearticle"
+				+" and c.codechapitre = ch.codechapitre"
+				+" and c.entitefinanciereprogramme = e.ENTITEFINANCIEREPROGRAMME"
+				+" and c.codepresentationcroisee = p.codepresentationcroisee ORDER BY c.id";
+		ResultSet rs = executerRequete(sql);
+		try {	
+			while (rs.next()) {
+				result = rs.getFloat(1);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return result;
+	}
 	
 	public ResultSet querySelectbyChapitre(int chapitre) {
 		//connexionDatabase();
@@ -156,6 +180,30 @@ public class Database {
 				+ " and c.entitefinanciereprogramme = e.ENTITEFINANCIEREPROGRAMME"
 				+ " and c.codepresentationcroisee = p.codepresentationcroisee ORDER BY c.id";
 		return this.executerRequete(sql);
+	}
+	public float querySelectbyChapitreSum(int chapitre, String d_r) {
+		//connexionDatabase();
+		float result = 0;
+		String sql = "SELECT SUM(c.montantrealise)"
+				+" FROM compte_adm_tls1 c,article a,chapitre ch,entitefinanciereprogramme e ,presentationcroisee p"
+				+" WHERE c.codechapitre="+chapitre
+				+" and c.depenses_recettes= '"+d_r+"'"
+				+" and c.codearticle = a.codearticle"
+				+" and c.codechapitre = ch.codechapitre"
+				+" and c.entitefinanciereprogramme = e.ENTITEFINANCIEREPROGRAMME"
+				+" and c.codepresentationcroisee = p.codepresentationcroisee ORDER BY c.id";
+		ResultSet rs = executerRequete(sql);
+		try {	
+			while (rs.next()) {
+				result = rs.getFloat(1);
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 		
 	public ResultSet querySelectbyId(int id) {
